@@ -22,10 +22,14 @@ public class FreeBoard extends Timestamped{
     @Column(nullable = false)
     private String author;
 
-    public FreeBoard(String title, String contents, String author){
+    @Column(nullable = false)
+    private String password;
+
+    public FreeBoard(String title, String contents, String author, String password){
         this.title = title;
         this.contents = contents;
         this.author = author;
+        this.password = password;
     }
 
     public FreeBoard(FreeBoardRequestDto requestDto){

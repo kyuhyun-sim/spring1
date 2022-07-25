@@ -25,6 +25,10 @@ public class FreeBoardController {
     public List<FreeBoard> readFreeBoard(){
         return freeBoardRepository.findAllByOrderByCreatedAtDesc();
     }
+    @GetMapping("/api/post/{id}")
+    public Long personalPost(@PathVariable Long id){
+        
+    }
     @PutMapping("/api/post/{id}")
     public Long updateFreeBoard(@PathVariable Long id, @RequestBody FreeBoardRequestDto requestDto){
         freeBoardService.update(id, requestDto);

@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class FreeBoardController {
 
     private final FreeBoardRepository FreeBoardRepository;
-    
+
 }

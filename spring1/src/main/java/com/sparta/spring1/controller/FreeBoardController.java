@@ -30,6 +30,9 @@ public class FreeBoardController {
         freeBoardService.update(id, requestDto);
         return id;
     }
-
-
+    @DeleteMapping("/api/memos/{id}")
+    public Long deleteMemo(@PathVariable Long id){
+        freeBoardRepository.deleteById(id);
+        return id;
+    }
 }

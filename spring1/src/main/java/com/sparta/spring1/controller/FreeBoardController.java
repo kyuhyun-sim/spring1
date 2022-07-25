@@ -5,10 +5,7 @@ import com.sparta.spring1.domain.FreeBoardRepository;
 import com.sparta.spring1.domain.FreeBoardRequestDto;
 import com.sparta.spring1.service.FreeBoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,11 @@ public class FreeBoardController {
     public List<FreeBoard> readFreeBoard(){
         return freeBoardRepository.findAllByOrderByCreatedAtDesc();
     }
+    @PutMapping("/api/post/{id}")
+    public Long updateFreeBoard(@PathVariable Long id, @RequestBody FreeBoardRequestDto requestDto){
+        freeBoardService.update(id, requestDto);
+        return id;
+    }
+
 
 }

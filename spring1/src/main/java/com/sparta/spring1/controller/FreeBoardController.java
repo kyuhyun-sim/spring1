@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,8 +27,9 @@ public class FreeBoardController {
         return freeBoardRepository.findAllByOrderByCreatedAtDesc();
     }
     @GetMapping("/api/post/{id}")
-    public Long personalPost(@PathVariable Long id){
-        
+    public Optional<FreeBoard> readWrite(@PathVariable Long id){
+
+        return freeBoardRepository.findById(id);
     }
     @PutMapping("/api/post/{id}")
     public Long updateFreeBoard(@PathVariable Long id, @RequestBody FreeBoardRequestDto requestDto){

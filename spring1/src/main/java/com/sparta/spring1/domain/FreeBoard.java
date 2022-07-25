@@ -34,5 +34,11 @@ public class FreeBoard extends Timestamped{
         this.author = requestDto.getAuthor();
     }
 
+    public void update(FreeBoardRequestDto requestDto){
+        this.title = requestDto.getTitle();
+        this.contents = requestDto.getContents();
+        this.author = requestDto.getAuthor();
+    }
+
 
 }

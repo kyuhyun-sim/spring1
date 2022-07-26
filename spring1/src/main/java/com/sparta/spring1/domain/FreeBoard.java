@@ -49,7 +49,6 @@ public class FreeBoard extends Timestamped{
     }
 
     public boolean confirm(PassWordRequestDto requestDto){
-        boolean boolp = this.password.equals(requestDto.getPassword());
-        return boolp;
+        return this.password.equals(requestDto.getPassword());
     }
 }

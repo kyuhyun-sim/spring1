@@ -9,3 +9,4 @@ import java.util.List;
 public interface FreeBoardRepository extends JpaRepository<FreeBoard, Long> {
     List<FreeBoard> findAllByOrderByCreatedAtDesc();
 }
+

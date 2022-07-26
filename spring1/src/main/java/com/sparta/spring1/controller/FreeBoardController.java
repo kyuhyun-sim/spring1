@@ -3,7 +3,9 @@ package com.sparta.spring1.controller;
 import com.sparta.spring1.domain.FreeBoard;
 import com.sparta.spring1.domain.FreeBoardRepository;
 import com.sparta.spring1.domain.FreeBoardRequestDto;
+import com.sparta.spring1.domain.PassWordRequestDto;
 import com.sparta.spring1.service.FreeBoardService;
+import com.sparta.spring1.service.PasswordConfirm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,8 @@ public class FreeBoardController {
 
     private final FreeBoardRepository freeBoardRepository;
     private final FreeBoardService freeBoardService;
+
+    private final PasswordConfirm passwordConfirm;
 
     @PostMapping("/api/post")
     public FreeBoard createFreeBoard(@RequestBody FreeBoardRequestDto requestDto){
@@ -40,5 +44,10 @@ public class FreeBoardController {
     public Long deleteMemo(@PathVariable Long id){
         freeBoardRepository.deleteById(id);
         return id;
+    }
+
+    @PostMapping("/api/post/{id}")
+    public boolean passwordConfirm1(@PathVariable Long id, @RequestBody PassWordRequestDto requestDto){
+        return passwordConfirm.confirm(id, requestDto);
     }
 }
